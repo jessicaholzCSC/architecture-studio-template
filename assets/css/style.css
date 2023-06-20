@@ -584,9 +584,6 @@ video {
 .min-h-100 {
   min-height: 100vh;
 }
-.min-h-70 {
-  min-height: 70vh;
-}
 .min-h-\[25vh\] {
   min-height: 25vh;
 }
@@ -611,6 +608,9 @@ video {
 .w-6 {
   width: 1.5rem;
 }
+.w-32 {
+  width: 8rem;
+}
 .w-4 {
   width: 1rem;
 }
@@ -622,9 +622,6 @@ video {
 }
 .w-\[150\%\] {
   width: 150%;
-}
-.w-32 {
-  width: 8rem;
 }
 .max-w-screen-2xl {
   max-width: 1536px;
@@ -985,29 +982,6 @@ background-color: #000;
 
 /* burger menu */
 
-
-
-.pulse-animation{
-  /* background-color: aqua; */
-  animation: pulse 1s ease-in-out infinite alternate;
-}
-.pulse-animation:hover{
-  animation-play-state: paused;
-}
-.bouncing-animation{
-  animation: bounce 1s ease-in-out infinite alternate;
-}
-
-@keyframes bounce {
-  from {translate: 0 0;}
-  to { translate: 0 -1rem;}
-}
-
-@keyframes pulse {
-  from {scale:1;}
-  to { scale: 1.2}
-}
-
 @media (min-width: 640px) {
   .sm\:block {
     display: block;
@@ -1063,3 +1037,5 @@ background-color: #000;
 .\[\&\>\:nth-child\(2n\)\]\:aspect-\[2\/3\]>:nth-child(2n) {
   aspect-ratio: 2/3;
 }
+
+
