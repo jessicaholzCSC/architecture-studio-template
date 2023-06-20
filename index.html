@@ -1,0 +1,171 @@
+---
+layout: default
+banner: true
+---
+<!-- 3 col section with info -->
+  <section class="">
+    <div class="grid  md:grid-cols-3 gap-10 max-w-screen-2xl mx-auto">
+
+      <!-- used flex here so that the vertical text takes up a small amount of space and leaving the rest for the div with bg image -->
+      <div class="flex self-start">
+        <p class="vertical-text px-2">
+          baro architecture
+        </p>
+        <div class="grow relative aspect-portrait bg pb-[50%]" style="background-image: url('https://picsum.photos/id/1081/600/400');">
+          <div class="w-5 h-5 navpoint bg-white absolute inline-block rounded-full bottom-8 right-8 pulse-animation">
+            <div class="right-[1rem] absolute top-0 overflow-hidden w-0 sub-points block whitespace-nowrap">41°24'12.2"N 2°10'26.5"E</div>
+          </div> 
+        </div>
+      </div>
+      <!-- col span 2 + coloumns 2 means that on desktop it will evenly break up the content between the 2 columns -->
+      <div class="md:col-span-2 md:columns-2 gap-10">
+        <h2 class="mb-0">Barō -</h2>
+        <h3 class="mb-8 text-3xl">Beyond the design</h3>
+        <p>With a rich history spanning decades, Baro Architecture has become synonymous with architectural excellence and a forward-thinking approach to the built environment.
+        </p>
+        
+        <p>
+          Baro Architecture was founded by visionary architect, Alejandro Baro, who sought to challenge the conventional boundaries of design and create spaces that inspire and elevate the human experience. With a passion for blending artistry, functionality, and sustainability, Baro Architecture has left an indelible mark on the architectural landscape.
+        </p>
+        <p>
+          Our team of talented architects and designers brings a diverse range of expertise and a shared commitment to pushing the boundaries of creativity. We believe that every project presents an opportunity to craft unique solutions that not only meet our clients' needs but also leave a lasting impact on communities and the environment.
+
+        </p>
+        <p>
+          Baro Architecture's portfolio spans a wide range of projects, from awe-inspiring residential homes and commercial spaces to iconic cultural landmarks.
+        </p>
+
+        <!-- arrow color is passed with the color variable -->
+        <div class="mt-8 ml-auto w-20">
+          <a href="#" class="block">
+            {% include arrow.html color='#000' %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- first property  -->
+  <section class="bg-[var(--dark)] text-white">
+    <div class="grid md:grid-cols-2 items-end pb-5p gap-8  max-w-screen-2xl mx-auto">
+
+      {% assign sorted = site.property | sort: 'date' %}
+      {% for prop in sorted limit:1 %}
+      <div class="">
+        <h2 class="w-1 scroll-in-from-bottom relative">{{prop.title}}</h2>
+      </div>
+      
+      <div>
+        <h3>Brief</h3>  
+        <div class="md:columns-2 gap-8">
+          <p>{{prop.brief}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="min-h-[25vh] relative">
+      <img src="{{prop.featured_image}}" alt="building" class="img-overlay">
+      <div class="absolute bg-white top-6 right-6 w-4 h-4 rounded-full pulse-animation">
+      </div>
+    </div>
+    <div class="flex gap-16 py-8 items-center">
+      <div>
+        <h3>
+          Date
+        </h3>
+        <p class="font-light text-sm">{{prop.date | date_to_string}}</p>
+      </div>
+      <div>
+        <h3>
+          Cotractor
+        </h3>
+        <p class="font-light text-sm">{{prop.contractor}}</p>
+      </div>
+      <div>
+        <h3>Principle Architect
+        </h3>
+        <p class="font-light text-sm">{{prop.architect}}</p>
+      </div>
+      <div class="flex-1"></div>
+      <div>
+        <a href="{{prop.url}}">
+          {% include arrow.html color='#fff' %}
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </section>
+
+  <!-- first featured property -->
+
+  <section class="">
+    <div class="grid md:grid-cols-2 pb-5p md:gap-16 max-w-screen-2xl mx-auto">
+      {% assign featured = site.property | where:'featured', 'true' %}
+      {% for prop in featured limit:1 %}
+      <div class="">
+        <h2 class="text-9xl w-[150%] mb-16 capitalize relative z-10 scroll-in-from-left">Featured property</h2>
+        <div class="px-12">
+        <h3>{{prop.title}}</h3>
+          <p>
+            {{prop.brief}}
+          </p>
+          <p>
+            {{prop.breif_continue_html}}
+          </p>
+          
+          <div class="flex items-center justify-between mt-6">
+            <span class="font-bold">see it</span>
+            {% include arrow.html color='#000' %}
+          </div>
+          <div class="text-right pt-12">
+            <h3 class="mb-0 mt-4">
+              Date
+            </h3>
+            <span class="">{{prop.date | date_to_string}}</span>
+            <h3 class="mb-0 mt-4">
+              Cotractor
+            </h3>
+            <span class="">{{prop.contractor}}</span>
+            <h3 class="mb-0 mt-4">
+              Principle Architect
+            </h3>
+            <span class="">{{prop.architect}}</span>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div class="mt-8 md:mt-32 flex items-stretch">
+        <div class="grow bg-cover bg-center pb-[50%] scroll-in-from-bottom" style="background-image: url('{{prop.featured_image}}');"></div>
+        <p class="vertical-text px-4">Barō Architecture</p>
+      </div>
+    {% endfor %}
+    </div>
+  </section>
+
+
+  <section class="bg-[var(--dark)] text-white">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 max-w-screen-2xl mx-auto">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 bg-white rounded-full hidden sm:block scroll-in-from-left"></div>
+          <div class="flex-1">
+            <h2 class="text-[2rem] scroll-in-from-bottom">
+              Beyond the design
+            </h2>
+            <div class="flex items-center gap-4">
+              <p class="mb-0">Contact us</p>
+              <div class="flex-1 text-right">
+                {% include arrow.html color='#fff' %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia iure voluptatum est laborum harum provident voluptas aperiam dolorum adipisci, ipsam repudiandae nulla, deleniti consectetur eum. Quasi minima consequuntur asperiores?</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse mollitia iure voluptatum est laborum harum provident voluptas aperiam dolorum adipisci, ipsam repudiandae nulla, deleniti consectetur eum. Quasi minima consequuntur asperiores?</p>
+        </div>
+      </div>
+  </section>
