@@ -127,3 +127,34 @@ background-color: #000;
 /* burger menu */
 
 
+/* bouncing button */
+
+.bouncing-animation{
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    translate: 0 0;
+  }
+  to { 
+    translate: 0 -1rem;
+  }
+}
+
+.pulse-animation{
+  animation: pulse 1.6s ease-in-out infinite alternate;
+}
+
+.pulse-animation:hover{
+  animation-play-state: paused;
+}
+
+@keyframes pulse {
+  from {
+    scale: 1.3;
+  }
+  to { 
+    scale: .9;
+  }
+}
